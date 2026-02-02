@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="no">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Del en utfordring - Stavanger Folk Lab</title>
+    <title>Share a Challenge - Stavanger Folk Lab</title>
     <style>
         body { font-family: 'Inter', sans-serif; max-width: 600px; margin: 2rem auto; padding: 1rem; line-height: 1.6; }
         h1 { font-family: 'Source Serif Pro', serif; }
@@ -18,46 +18,46 @@
     </style>
 </head>
 <body>
-    <h1>Del en utfordring</h1>
-    <p>Har du en reell, anonymisert utfordring fra din organisasjon som du tror andre kan lære av? Beskriv den her. Godkjente bidrag vil bli kuratert og publisert i "Utfordringer fra Felleskapet"-seksjonen.</p>
+    <h1>Share a Challenge</h1>
+    <p>Do you have a real, anonymized challenge from your organization that you think others can learn from? Describe it here. Approved submissions will be curated and published in the "Community Challenges" section.</p>
     
     <div class="info">
-        <strong>Viktig:</strong> Vennligst ikke del sensitiv eller konfidensiell informasjon. Fokuser på den generelle problemstillingen.
+        <strong>Important:</strong> Please do not share sensitive or confidential information. Focus on the general problem.
     </div>
 
     <form id="challengeForm">
         <!-- Hidden field to tell the script what kind of data this is -->
         <input type="hidden" name="form_type" value="challenge">
 
-        <label for="title">Tittel på utfordringen (kort og presis)</label>
+        <label for="title">Challenge Title (short and precise)</label>
         <input type="text" id="title" name="title" required>
 
-        <label for="situation">Situasjon (Beskriv problemet og konteksten)</label>
+        <label for="situation">Situation (Describe the problem and context)</label>
         <textarea id="situation" name="situation" rows="6" required></textarea>
 
-        <label for="author">Ditt Navn / Rolle (Valgfritt, f.eks. "Leder, Olje & Gass")</label>
+        <label for="author">Your Name / Role (Optional, e.g., "Manager, Oil & Gas")</label>
         <input type="text" id="author" name="author">
 
-        <button type="submit" id="submitBtn">Send inn utfordring</button>
+        <button type="submit" id="submitBtn">Submit Challenge</button>
     </form>
 
     <div id="successMessage">
-        <h2>Takk!</h2>
-        <p>Din utfordring er mottatt og vil bli vurdert for publisering.</p>
+        <h2>Thank You!</h2>
+        <p>Your challenge has been received and will be reviewed for publication.</p>
     </div>
 
     <hr style="margin-top: 2rem;">
-    <p><a href="index.html">&larr; Tilbake til laben</a></p>
+    <p><a href="index.html">&larr; Back to the Lab</a></p>
 
     <script>
         // --- IMPORTANT: Replace with your REAL Apps Script URL ---
         const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwMhF5SpEzXZPxjIte_lXccGQqpSLXU35CG3u-nePiUDrB5XJGAfdZVQUcW3jfCMSJf/exec';
 
-        document.getElementById('challengeForm' ).addEventListener('submit', function(e) {
+        document.getElementById('challengeForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const submitBtn = document.getElementById('submitBtn');
             submitBtn.disabled = true;
-            submitBtn.textContent = 'Sender...';
+            submitBtn.textContent = 'Submitting...';
 
             const formData = new FormData(e.target);
 
@@ -76,9 +76,9 @@
             })
             .catch(error => {
                 console.error('Error:', error);
-                submitBtn.textContent = 'Feil - Prøv igjen';
+                submitBtn.textContent = 'Error - Try Again';
                 submitBtn.disabled = false;
-                alert('En feil oppstod. Vennligst prøv igjen.\n' + error.message);
+                alert('An error occurred. Please try again.\n' + error.message);
             });
         });
     </script>
