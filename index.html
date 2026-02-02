@@ -191,7 +191,7 @@ function renderCases(cases) {
     const card = document.createElement('div');
     card.className = 'case-card';
     const isChallenge = String(caseData.case_number).startsWith('C');
-const label = isChallenge ? 'Fellesskap' : 'Bibliotek';
+const label = isChallenge ? 'Community' : 'Library';
 card.innerHTML = `
   <div class="case-number">${label} #${String(caseData.case_number).substring(1)}</div>
   <div class="case-title">${caseData.title}</div>
@@ -391,6 +391,7 @@ document.addEventListener('DOMContentLoaded', main);
 </body>
 
 </html>
+
 
 
 
