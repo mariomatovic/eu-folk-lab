@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="no">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stavanger Folk Lab | Et laboratorium for å bygge bedre team</title>
-<meta name="description" content="Et åpent laboratorium for å utforske og løse reelle utfordringer innen team- og kultur-utvikling i Stavanger-regionen.">
+<title>Stavanger Folk Lab | A laboratory for building better teams</title>
+<meta name="description" content="An open laboratory to explore and solve real challenges in team and culture development in the Stavanger region.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -64,31 +64,31 @@ small.status { display:block; margin-top:8px; color:var(--subtle-text); }
 <div class="container">
   <header>
     <div class="header-links">
-      <a id="about-link">Om Laben</a>
+      <a id="about-link">About the Lab</a>
       <a id="login-link" class="cta">Login</a>
       <span id="logged-in-user" style="display:none;"></span>
     </div>
     <h1>Stavanger Folk Lab</h1>
-    <p>Et laboratorium for å bygge bedre team.</p>
+    <p>A laboratory for building better teams.</p>
   </header>
 
   <div class="lab-controls">
     <div class="toggle-switch">
-      <button id="toggle-library" class="active">Biblioteket</button>
-      <button id="toggle-live">Utfordringer fra Felleskapet</button>
+      <button id="toggle-library" class="active">Library</button>
+      <button id="toggle-live">Community Challenges</button>
     </div>
-    <a id="add-challenge-link" href="add-challenge-form.html" class="add-problem-btn">Del en utfordring</a>
+    <a id="add-challenge-link" href="add-challenge-form.html" class="add-problem-btn">Share a Challenge</a>
   </div>
 
   <main>
     <div class="case-grid" id="case-grid">
-      <div id="loading-indicator">Laster inn case-studier...</div>
+      <div id="loading-indicator">Loading case studies...</div>
     </div>
   </main>
 </div>
 
 <footer>
-  &copy; 2025 Stavanger Folk Lab. Et uavhengig forskningsprosjekt.
+  &copy; 2025 Stavanger Folk Lab. An independent research project.
 </footer>
 
 <!-- Modals -->
@@ -99,16 +99,16 @@ small.status { display:block; margin-top:8px; color:var(--subtle-text); }
 <div class="modal-overlay" id="about-modal">
   <div class="modal-content">
     <div class="section">
-      <h2>Om Grunnleggeren</h2>
-      <p>Mitt navn er <strong>Mario Matovic</strong>. Med en bachelor i organisasjonsvitenskap og en master i biopsykologi, har jeg en genuin interesse for hva som får mennesker og team til å fungere godt sammen. Min erfaring spenner fra tekniske miljøer til prestasjons-coaching i idretten, hvor jeg lærte en fundamental sannhet: ekstraordinære resultater oppstår når et team deler en retning, ledere viser tillit, og kommunikasjonen er åpen.</p>
-      <p>Jeg startet Folk Lab som et personlig prosjekt for å anvende teori på reelle problemer og for å skape en felles arena for læring her i Stavanger. Hvis du trenger en konsulent for ditt team eller din organisasjon, kan du lære mer på <a href="https://mariomatovic.github.io/" target="_blank">min personlige nettside</a>.</p>
+      <h2>About the Founder</h2>
+      <p>My name is <strong>Mario Matovic</strong>. With a bachelor's in Organizational Science and a master's in Biopsychology, I have a genuine interest in what makes people and teams function well together. My experience spans technical environments to performance coaching in sports, where I learned a fundamental truth: extraordinary results happen when a team shares a direction, leaders show trust, and communication is open.</p>
+      <p>I started Folk Lab as a personal project to apply theory to real problems and create a shared arena for learning here in Stavanger. If you need a consultant for your team or organization, you can learn more on <a href="https://mariomatovic.github.io/" target="_blank">my personal website</a>.</p>
     </div>
     <div class="section">
-      <h2>Bli med i Laben</h2>
-      <p>Folk Lab er et åpent laboratorium. Det finnes to måter å bidra på:</p>
+      <h2>Join the Lab</h2>
+      <p>Folk Lab is an open laboratory. There are two ways to contribute:</p>
       <ol>
-        <li><strong>Send inn en løsning:</strong> Alle kan foreslå en løsning på et case-studie via "Legg til løsning"-knappen.</li>
-        <li><strong>Bli en Lab Fellow:</strong> Jeg er alltid på utkikk etter respekterte ledere og fagpersoner for dypere involvering. Hvis dette er deg, <a href="mailto:mariomatovic@gmail.com">ta kontakt med meg direkte</a>.</li>
+        <li><strong>Submit a solution:</strong> Anyone can propose a solution to a case study via the "Add Solution" button.</li>
+        <li><strong>Become a Lab Fellow:</strong> I am always looking for respected leaders and professionals for deeper involvement. If this is you, <a href="mailto:mariomatovic@gmail.com">contact me directly</a>.</li>
       </ol>
     </div>
   </div>
@@ -120,25 +120,25 @@ small.status { display:block; margin-top:8px; color:var(--subtle-text); }
     <h2>Login</h2>
     <div id="login-area">
       <form id="loginForm" class="login-form" onsubmit="return false;">
-        <label for="login-username">Brukernavn</label>
+        <label for="login-username">Username</label>
         <input id="login-username" name="username" type="text" autocomplete="username" required>
 
-        <label for="login-password">Passord</label>
+        <label for="login-password">Password</label>
         <input id="login-password" name="password" type="password" autocomplete="current-password" required>
 
         <div class="login-actions">
-          <button id="loginCancel" type="button" class="modal-btn secondary">Avbryt</button>
-          <button id="loginSubmit" type="submit" class="modal-btn">Logg inn</button>
+          <button id="loginCancel" type="button" class="modal-btn secondary">Cancel</button>
+          <button id="loginSubmit" type="submit" class="modal-btn">Log In</button>
         </div>
         <small class="status" id="login-status"></small>
       </form>
     </div>
     <div id="logged-in-area" style="display:none;">
-      <p>Du er logget inn som <span id="logged-in-name" class="user-badge"></span></p>
+      <p>You are logged in as <span id="logged-in-name" class="user-badge"></span></p>
       <p><span id="logged-in-role" class="user-badge"></span></p>
       <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:8px;">
-        <a id="logoutBtn" class="modal-btn secondary">Logg ut</a>
-        <a id="closeLoginBtn" class="modal-btn">Lukk</a>
+        <a id="logoutBtn" class="modal-btn secondary">Log Out</a>
+        <a id="closeLoginBtn" class="modal-btn">Close</a>
       </div>
     </div>
   </div>
@@ -389,4 +389,5 @@ async function main() {
 document.addEventListener('DOMContentLoaded', main);
 </script>
 </body>
+
 </html>
