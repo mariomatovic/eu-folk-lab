@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="no">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Legg til løsning - Stavanger Folk Lab</title>
+<title>Add Solution - Stavanger Folk Lab</title>
 <style>
 #author-block { display: none; }
 body { font-family: 'Inter', sans-serif; max-width: 600px; margin: 2rem auto; padding: 1rem; line-height: 1.6; }
@@ -19,8 +19,8 @@ button:disabled { background-color: #999; }
 </style>
 </head>
 <body>
-<h1>Legg til din løsning</h1>
-<p>Takk for at du vil bidra! Alle innsendte løsninger blir vurdert før publisering.</p>
+<h1>Add Your Solution</h1>
+<p>Thank you for contributing! All submitted solutions will be reviewed before publication.</p>
 
 <form id="solutionForm">
   <!-- Hidden fields -->
@@ -29,28 +29,28 @@ button:disabled { background-color: #999; }
   <input type="hidden" id="username_field" name="username">
 
   <div id="author-block">
-    <label for="author">Ditt Navn (eller "Anonym")</label>
+    <label for="author">Your Name (or "Anonymous")</label>
     <input type="text" id="author" name="author" required>
-    <label for="title">Din Tittel/Rolle (f.eks. "Student", "Leder, IT")</label>
+    <label for="title">Your Title/Role (e.g., "Student", "Manager, IT")</label>
     <input type="text" id="title" name="title" required>
   </div>
 
-  <label for="solution">Din Løsning</label>
+  <label for="solution">Your Solution</label>
   <textarea id="solution" name="solution" rows="8" required></textarea>
 
   <div style="display:flex; gap:8px; align-items:center;">
-    <button type="submit" id="submitBtn">Send inn løsning</button>
+    <button type="submit" id="submitBtn">Submit Solution</button>
     <div id="loggedInNotice" style="display:none; font-size:0.95rem; color:#666;"></div>
   </div>
 </form>
 
 <div id="successMessage">
-  <h2>Takk!</h2>
-  <p>Din løsning er mottatt og vil bli vurdert for publisering.</p>
+  <h2>Thank You!</h2>
+  <p>Your solution has been received and will be reviewed for publication.</p>
 </div>
 
 <hr style="margin-top: 2rem;">
-<p><a href="index.html">&larr; Tilbake til laben</a></p>
+<p><a href="index.html">&larr; Back to the Lab</a></p>
 
 <script>
 const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwMhF5SpEzXZPxjIte_lXccGQqpSLXU35CG3u-nePiUDrB5XJGAfdZVQUcW3jfCMSJf/exec';
@@ -63,7 +63,7 @@ const providedUsername = urlParams.get('username');
 if (caseId) {
   document.getElementById('case_number').value = caseId;
 } else {
-  document.getElementById('solutionForm').innerHTML = '<p style="color: red;">Feil: Ingen case-ID funnet. Gå tilbake til hovedsiden og prøv igjen.</p>';
+  document.getElementById('solutionForm').innerHTML = '<p style="color: red;">Error: No case ID found. Go back to the main page and try again.</p>';
 }
 
 // Detect logged-in user state
@@ -110,7 +110,7 @@ async function detectLoggedInUser() {
 
       // Hide author/title fields and show logged-in notice
       console.log('Hiding author fields...');
-      hideAuthorFields(`Innlogget som: ${user.author_name} (${user.author_title || user.role || ''})`);
+      hideAuthorFields(`Logged in as: ${user.author_name} (${user.author_title || user.role || ''})`);
     } else {
       console.log('User not found in response');
       showAuthorFields();
@@ -143,7 +143,7 @@ document.getElementById('solutionForm').addEventListener('submit', function(e) {
   e.preventDefault();
   const submitBtn = document.getElementById('submitBtn');
   submitBtn.disabled = true;
-  submitBtn.textContent = 'Sender inn...';
+  submitBtn.textContent = 'Submitting...';
   
   const formData = new FormData(this);
   
@@ -165,21 +165,21 @@ document.getElementById('solutionForm').addEventListener('submit', function(e) {
     // Check if user was logged in
     const username = document.getElementById('username_field').value;
     if (username) {
-      document.getElementById('successMessage').innerHTML = '<h2>Takk!</h2><p>Din løsning er publisert og vil vises umiddelbart på caset.</p>';
+      document.getElementById('successMessage').innerHTML = '<h2>Thank You!</h2><p>Your solution has been published and will appear immediately on the case.</p>';
     }
     
     document.getElementById('successMessage').style.display = 'block';
   } else {
-      alert('Noe gikk galt: ' + (data.error || 'Ukjent feil'));
+      alert('Something went wrong: ' + (data.error || 'Unknown error'));
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Send inn løsning';
+      submitBtn.textContent = 'Submit Solution';
     }
   })
   .catch(error => {
     console.error('Full error:', error);
-    alert('Noe gikk galt. Prøv igjen senere.');
+    alert('Something went wrong. Please try again later.');
     submitBtn.disabled = false;
-    submitBtn.textContent = 'Send inn løsning';
+    submitBtn.textContent = 'Submit Solution';
   });
 });
 </script>
