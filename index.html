@@ -243,7 +243,7 @@ function openCaseModal(caseData) {
       ${solutionsHtml.length > 0 ? solutionsHtml : '<p>No solutions have been suggested yet. Be the first!</p>'}
     </div>
     <div class="modal-buttons">
-      <a href="${ADD_SOLUTION_FORM_URL}?case_id=${caseData.case_number}${usernameParam}" class="modal-btn">Legg til løsning</a>
+      <a href="${ADD_SOLUTION_FORM_URL}?case_id=${caseData.case_number}${usernameParam}" class="modal-btn">Add solution</a>
     </div>
     <p class="discussion-explainer">By requesting a discussion, you are expressing your interest in participating in a small, facilitated group to discuss this case in more depth. If enough interest is expressed, the founder will take the initiative to convene the group.</p>
   `;
@@ -391,6 +391,7 @@ document.addEventListener('DOMContentLoaded', main);
 </body>
 
 </html>
+
 
 
 
