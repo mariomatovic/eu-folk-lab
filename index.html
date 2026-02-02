@@ -184,7 +184,7 @@ function renderCases(cases) {
   if (!grid) return;
   grid.innerHTML = '';
   if (!cases || cases.length === 0) {
-    grid.innerHTML = '<p style="color: var(--subtle-text); text-align: center;">Ingen case-studier i denne seksjonen ennå.</p>';
+    grid.innerHTML = '<p style="color: var(--subtle-text); text-align: center;">No case studies in this section yet.</p>';
     return;
   }
   cases.forEach(caseData => {
@@ -227,25 +227,25 @@ function openCaseModal(caseData) {
     <h2>Case #${caseData.case_number}</h2>
     <h3>${caseData.title}</h3>
     <div class="section">
-      <h2>1. Situasjon</h2>
+      <h2>1. Situation</h2>
       <p>${String(caseData.situation).replace(/\n/g, '<br>')}</p>
     </div>
     <div class="section">
-      <h2>2. Teoretisk Perspektiv</h2>
+      <h2>2. Theoretical Perspective</h2>
       <p>${String(caseData.theory).replace(/\n/g, '<br>')}</p>
     </div>
     <div class="section">
-      <h2>3. Lignende Praksis</h2>
+      <h2>3. Similar Practices</h2>
       <p>${String(caseData.precedent).replace(/\n/g, '<br>')}</p>
     </div>
     <div class="section">
-      <h2>4. Foreslåtte Løsninger</h2>
-      ${solutionsHtml.length > 0 ? solutionsHtml : '<p>Ingen løsninger er foreslått ennå. Vær den første!</p>'}
+      <h2>4. Suggested Solutions</h2>
+      ${solutionsHtml.length > 0 ? solutionsHtml : '<p>No solutions have been suggested yet. Be the first.!</p>'}
     </div>
     <div class="modal-buttons">
       <a href="${ADD_SOLUTION_FORM_URL}?case_id=${caseData.case_number}${usernameParam}" class="modal-btn">Legg til løsning</a>
     </div>
-    <p class="discussion-explainer">Ved å be om en diskusjon, melder du din interesse for å delta i en liten, fasilitert gruppe for å drøfte dette caset dypere. Hvis nok interesse meldes, vil grunnlegger ta initiativ til å samle gruppen.</p>
+    <p class="discussion-explainer">By requesting a discussion, you are expressing your interest in participating in a small, facilitated group to discuss this case in more depth. If enough interest is expressed, the founder will take the initiative to convene the group.</p>
   `;
   openModal(caseModal);
 }
@@ -259,7 +259,7 @@ function handleLogin(e) {
     const status = document.getElementById('login-status');
     
     button.disabled = true;
-    status.textContent = 'Logger inn...';
+    status.textContent = 'Log in...';
 
     const formData = new FormData(form);
     formData.append('form_type', 'login');
@@ -275,7 +275,7 @@ function handleLogin(e) {
             updateLoginStatus();
             closeModal();
         } else {
-            throw new Error(data.error || 'Ugyldig brukernavn eller passord.');
+            throw new Error(data.error || 'Invalid username or password.');
         }
     })
     .catch(error => {
@@ -289,7 +289,7 @@ function handleLogin(e) {
 function handleLogout() {
     sessionStorage.removeItem('FolkLabUser');
     updateLoginStatus();
-    alert('Du er nå logget ut.');
+    alert('You are now logged out.');
     closeModal();
 }
 
@@ -301,7 +301,7 @@ function updateLoginStatus() {
     if (user) {
         const userData = JSON.parse(user);
         loginLink.style.display = 'none';
-        loggedInUserSpan.innerHTML = `${userData.author_name} (<a href="#" id="logout-link" class="header-logout">Logg ut</a>)`;
+        loggedInUserSpan.innerHTML = `${userData.author_name} (<a href="#" id="logout-link" class="header-logout">Sign out</a>)`;
         loggedInUserSpan.style.display = 'inline';
         document.getElementById('logout-link').addEventListener('click', (e) => {
             e.preventDefault();
@@ -382,7 +382,7 @@ async function main() {
         if(loadingIndicator) loadingIndicator.style.display = 'none';
     } catch (error) {
         console.error("Failed to fetch data:", error);
-        if(loadingIndicator) loadingIndicator.textContent = "Kunne ikke laste inn data. Prøv igjen senere.";
+        if(loadingIndicator) loadingIndicator.textContent = "Could not load data. Please try again later.";
     }
 }
 
@@ -391,5 +391,6 @@ document.addEventListener('DOMContentLoaded', main);
 </body>
 
 </html>
+
 
 
